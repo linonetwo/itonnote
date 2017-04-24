@@ -1,3 +1,5 @@
+# itonnote
+
 <!-- TOC -->
 
 - [itonnote](#itonnote)
@@ -17,8 +19,6 @@
     - [部署场景](#部署场景)
 
 <!-- /TOC -->
-
-# itonnote
 
 事体笔记，基于[事体理论](http://onetwo.ren/处理人格的边界/)整合模因，处于原型阶段。
 
