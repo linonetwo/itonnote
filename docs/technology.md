@@ -15,6 +15,10 @@
 
 我没有直接将 GraphQL 转换为 Cypher，因为当前业务只需要从一个节点出发探索以确定步数相邻的其他节点，没有动态生成很复杂的图遍历 GraphQL 语句的需求，所以我将直接在 GraphQL 的 resolver 里调用固定的 Cypher 模板。
 
+## SSR
+
+利用了 [apollo-fullstack-starter-kit](https://github.com/sysgears/apollo-fullstack-starter-kit)
+
 ## 部署
 
 ### Docker
