@@ -30,7 +30,9 @@
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
     "dev": "babel-node --presets es2015 tools/webpack.run watch",
-    "heroku-postbuild": "rm -rf build && npm run build && npm run seed"
+    "heroku-postbuild": "rm -rf build && npm run build && npm run seed",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -147,7 +149,8 @@
     "webpack-merge": "^4.1.0",
     "webpack-node-externals": "^1.5.4",
     "webpack-virtual-modules": "^0.1.5",
-    "ws": "^2.2.3"
+    "ws": "^2.2.3",
+    "@kadira/storybook": "^2.21.0"
   },
   "eslintConfig": {
     "parser": "babel-eslint",

@@ -7,7 +7,7 @@ import { addPersistedQueries } from 'persistgraphql';
 
 import createApolloClient from '../../common/apollo_client';
 import createReduxStore from '../../common/redux_store';
-import routes from '../app/routes';
+import routes from './routes';
 import { app as settings } from '../../../package.json';
 
 import '../styles/styles.scss';

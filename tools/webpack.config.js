@@ -215,3 +215,5 @@ module.exports =
   IS_TEST ?
     serverConfig :
     [serverConfig, clientConfig, dllConfig];
+
+module.exports.clientConfig = clientConfig;
