@@ -43,6 +43,7 @@ export class Counter extends Component {
 
   subscribe() {
     const { client, updateCountQuery } = this.props;
+    if (!client || !updateCountQuery) return;
     this.subscription = client.subscribe({
       query: COUNT_SUBSCRIPTION,
       variables: {},

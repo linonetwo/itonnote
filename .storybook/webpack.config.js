@@ -6,6 +6,16 @@
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
 
-const clientConfig = require('../tools/webpack.config').clientConfig
 
-module.exports = clientConfig;
+module.exports = (storybookBaseConfig, configType) => {
+
+  storybookBaseConfig.module.loaders.push(
+    {
+      test: /\.(graphql|gql)$/,
+      exclude: /node_modules/,
+      loaders: ['graphql-tag/loader']
+    }
+  );
+
+  return storybookBaseConfig;
+};

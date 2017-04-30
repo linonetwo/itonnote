@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook'; // eslint-disable-line import/no-extraneous-dependencies
 import Button from './Button';
 import Welcome from './Welcome';
-import { Counter } from '../src/client/modules/omniInput/containers/counter';
+import {Counter} from '../src/client/modules/omniInput/containers/counter';
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
@@ -17,7 +17,7 @@ storiesOf('Button', module)
     <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
   ));
 
-storiesOf('Button', module)
+storiesOf('OmniInput', module)
   .add('with text', () => {
     const count = { amount: 0 };
     return (
