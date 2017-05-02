@@ -15,7 +15,7 @@ module.exports = (storybookBaseConfig, configType) => {
       loaders: ['graphql-tag/loader']
     },
     {
-      test: /plugin\.css$/,
+      test: /\.css$/,
       loaders: [
         'style', 'css',
       ],
