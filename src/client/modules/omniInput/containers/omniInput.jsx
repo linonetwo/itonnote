@@ -56,7 +56,7 @@ export class OmniInput extends Component {
     editorState: EditorState.createEmpty()
   };
 
-  editor: ?Editor;
+  editor: Editor;
 
   constructor(props: Props) {
     super(props);

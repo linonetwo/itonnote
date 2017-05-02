@@ -8,7 +8,6 @@
 const path = require('path');
 
 module.exports = (storybookBaseConfig, configType) => {
-  console.log(storybookBaseConfig.module.loaders[0].query.presets)
   storybookBaseConfig.module.loaders = [
     {
       test: /\.jsx?$/,
@@ -22,7 +21,10 @@ module.exports = (storybookBaseConfig, configType) => {
           "transform-runtime",
           "transform-decorators-legacy",
           "transform-class-properties",
-          "flow-runtime"
+          ["flow-runtime", {
+            "assert": false,
+            "annotate": true
+          }]
         ]
       }
     },
