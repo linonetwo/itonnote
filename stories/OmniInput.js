@@ -17,7 +17,8 @@ const WideDiv = styled.div`
 storiesOf('OmniInput', module)
   .add('with text', () => {
     const notes = `
-      Input field should fit inside the outside div
+      Input field should fit inside the outside div.
+      That is: when clicking on shadowed div, you will focus on the editor.
     `;
     return (
       <WithNotes notes={notes}>

@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import Editor from 'draft-js-plugins-editor';
 import { EditorState } from 'draft-js';
 import createInlineToolbarPlugin from 'draft-js-inline-toolbar-plugin';
@@ -38,6 +39,11 @@ const inlineToolbarPlugin = createInlineToolbarPlugin({
 const markdownShortcutsPlugin = createMarkdownShortcutsPlugin()
 const { InlineToolbar } = inlineToolbarPlugin;
 
+const Container = styled.div`
+  height: 100%;
+  width: 100%;
+`;
+
 type Props  = { placeholder: string };
 type State = { editorState: EditorState };
 
@@ -66,7 +72,7 @@ export class OmniInput extends Component {
   render() {
     const { placeholder } = this.props;
     return (
-      <div onClick={this.focus}>
+      <Container onClick={this.focus}>
         <Editor
           placeholder={placeholder}
           editorState={this.state.editorState}
@@ -75,7 +81,7 @@ export class OmniInput extends Component {
           ref={(element) => { this.editor = element; }}
         />
         <InlineToolbar />
-      </div>
+      </Container>
     );
   }
 }
