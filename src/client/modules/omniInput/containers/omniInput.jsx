@@ -1,6 +1,9 @@
+// @flow
 import React, { Component } from 'react';
-import Editor, { createEditorStateWithText } from 'draft-js-plugins-editor'; // eslint-disable-line import/no-unresolved
-import createInlineToolbarPlugin from 'draft-js-inline-toolbar-plugin'; // eslint-disable-line import/no-unresolved
+import Editor from 'draft-js-plugins-editor';
+import { EditorState } from 'draft-js';
+import createInlineToolbarPlugin from 'draft-js-inline-toolbar-plugin';
+import createMarkdownShortcutsPlugin from 'draft-js-markdown-shortcuts-plugin';
 import {
   ItalicButton,
   BoldButton,
@@ -13,8 +16,9 @@ import {
   OrderedListButton,
   BlockquoteButton,
   CodeBlockButton,
-} from 'draft-js-buttons'; // eslint-disable-line import/no-unresolved
+} from 'draft-js-buttons';
 import 'draft-js-inline-toolbar-plugin/lib/plugin.css';
+import 'draft-js/dist/Draft.css';
 
 const inlineToolbarPlugin = createInlineToolbarPlugin({
   structure: [
@@ -31,29 +35,45 @@ const inlineToolbarPlugin = createInlineToolbarPlugin({
     CodeBlockButton,
   ]
 });
+const markdownShortcutsPlugin = createMarkdownShortcutsPlugin()
 const { InlineToolbar } = inlineToolbarPlugin;
-const text = 'In this editor a toolbar shows up once you select part of the text …';
+
+type Props  = { placeholder: string };
+type State = { editorState: EditorState };
 
 export class OmniInput extends Component {
-  constructor(props) {
-    super(props);
-
-    this.subscription = null;
+  static defaultProps: Props = {
+    placeholder: ''
   }
+  props: Props;
+  state: State = {
+    editorState: EditorState.createEmpty()
+  };
 
-  state = {editorState: createEditorStateWithText(text)};
+  editor: ?Editor;
+
+  constructor(props: Props) {
+    super(props);
+  }
 
   focus = () => {
     this.editor.focus();
   };
 
-  onChange = (editorState) => this.setState({editorState});
+  onChange = (editorState: EditorState) => this.setState({editorState});
 
 
   render() {
+    const { placeholder } = this.props;
     return (
       <div onClick={this.focus}>
-        <Editor editorState={this.state.editorState} onChange={this.onChange} plugins={[inlineToolbarPlugin]} ref={(element) => { this.editor = element; }}/>
+        <Editor
+          placeholder={placeholder}
+          editorState={this.state.editorState}
+          onChange={this.onChange}
+          plugins={[inlineToolbarPlugin, markdownShortcutsPlugin]}
+          ref={(element) => { this.editor = element; }}
+        />
         <InlineToolbar />
       </div>
     );

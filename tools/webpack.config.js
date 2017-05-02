@@ -47,11 +47,12 @@ const baseConfig = {
         use: [{
           loader: 'babel-loader',
           options: {
-            "presets": ["react", ["es2015", { "modules": false }], "stage-2"],
+            "presets": ["flow", "react", ["es2015", { "modules": false }], "stage-2"],
             "plugins": [
               "transform-runtime",
               "transform-decorators-legacy",
-              "transform-class-properties"
+              "transform-class-properties",
+              "flow-runtime"
             ].concat(__DEV__ && pkg.app.reactHotLoader ? ['react-hot-loader/babel'] : []),
             "only": ["*.js", "*.jsx"],
           }

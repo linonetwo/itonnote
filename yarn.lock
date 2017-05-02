@@ -551,7 +551,7 @@ babel-eslint@^7.2.2:
     babel-types "^6.23.0"
     babylon "^6.17.0"
 
-babel-generator@^6.24.1:
+babel-generator@^6.21.0, babel-generator@^6.24.1:
   version "6.24.1"
   resolved "http://registry.npm.taobao.org/babel-generator/download/babel-generator-6.24.1.tgz#e715f486c58ded25649d888944d52aa07c5d9497"
   dependencies:
@@ -718,6 +718,17 @@ babel-plugin-check-es2015-constants@^6.22.0, babel-plugin-check-es2015-constants
   resolved "http://registry.npm.taobao.org/babel-plugin-check-es2015-constants/download/babel-plugin-check-es2015-constants-6.22.0.tgz#35157b101426fd2ffd3da3f75c7d1e91835bbf8a"
   dependencies:
     babel-runtime "^6.22.0"
+
+babel-plugin-flow-runtime@^0.11.1:
+  version "0.11.1"
+  resolved "http://registry.npm.taobao.org/babel-plugin-flow-runtime/download/babel-plugin-flow-runtime-0.11.1.tgz#5bccef681c75a126d6c81db3560dabf075e19d22"
+  dependencies:
+    babel-generator "^6.21.0"
+    babel-traverse "^6.20.0"
+    babel-types "^6.16.0"
+    babylon "^6.16.1"
+    camelcase "^3.0.0"
+    flow-config-parser "^0.3.0"
 
 babel-plugin-react-docgen@^1.4.2:
   version "1.4.2"
@@ -1306,7 +1317,7 @@ babel-template@^6.16.0, babel-template@^6.24.1, babel-template@^6.3.0, babel-tem
     babylon "^6.11.0"
     lodash "^4.2.0"
 
-babel-traverse@^6.16.0, babel-traverse@^6.23.1, babel-traverse@^6.24.1:
+babel-traverse@^6.16.0, babel-traverse@^6.20.0, babel-traverse@^6.23.1, babel-traverse@^6.24.1:
   version "6.24.1"
   resolved "http://registry.npm.taobao.org/babel-traverse/download/babel-traverse-6.24.1.tgz#ab36673fd356f9a0948659e7b338d5feadb31695"
   dependencies:
@@ -1329,7 +1340,7 @@ babel-types@^6.16.0, babel-types@^6.19.0, babel-types@^6.23.0, babel-types@^6.24
     lodash "^4.2.0"
     to-fast-properties "^1.0.1"
 
-babylon@^6.11.0, babylon@^6.12.0, babylon@^6.15.0, babylon@^6.17.0:
+babylon@^6.11.0, babylon@^6.12.0, babylon@^6.15.0, babylon@^6.16.1, babylon@^6.17.0:
   version "6.17.0"
   resolved "http://registry.npm.taobao.org/babylon/download/babylon-6.17.0.tgz#37da948878488b9c4e3c4038893fa3314b3fc932"
 
@@ -2261,13 +2272,13 @@ debug@2.6.0:
   dependencies:
     ms "0.7.2"
 
-debug@2.6.1, debug@^2.1.1, debug@^2.1.3, debug@^2.2.0:
+debug@2.6.1, debug@^2.1.1, debug@^2.1.3, debug@^2.2.0, debug@^2.6.0:
   version "2.6.1"
   resolved "http://registry.npm.taobao.org/debug/download/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
   dependencies:
     ms "0.7.2"
 
-debug@2.6.4, debug@^2.6.0:
+debug@2.6.4:
   version "2.6.4"
   resolved "http://registry.npm.taobao.org/debug/download/debug-2.6.4.tgz#7586a9b3c39741c0282ae33445c4e8ac74734fe0"
   dependencies:
@@ -2466,6 +2477,10 @@ draft-js-buttons@^2.0.0-beta9:
     react ">=15.3.1"
     union-class-names "^1.0.0"
 
+draft-js-checkable-list-item@^2.0.2:
+  version "2.0.4"
+  resolved "http://registry.npm.taobao.org/draft-js-checkable-list-item/download/draft-js-checkable-list-item-2.0.4.tgz#45ed267ca156c19dc7a2ff4f8533072b0d885ca7"
+
 draft-js-inline-toolbar-plugin@^2.0.0-beta10:
   version "2.0.0-beta9"
   resolved "http://registry.npm.taobao.org/draft-js-inline-toolbar-plugin/download/draft-js-inline-toolbar-plugin-2.0.0-beta9.tgz#15cdbacd98b29be5c9cc07313116b419b00d09a8"
@@ -2478,6 +2493,17 @@ draft-js-inline-toolbar-plugin@^2.0.0-beta10:
     react ">=15.3.1"
     react-dom ">=15.3.1"
     union-class-names "^1.0.0"
+
+draft-js-markdown-shortcuts-plugin@^0.1.0:
+  version "0.1.0"
+  resolved "http://registry.npm.taobao.org/draft-js-markdown-shortcuts-plugin/download/draft-js-markdown-shortcuts-plugin-0.1.0.tgz#ef6407fec362684539c8dcffc982d06a059371b5"
+  dependencies:
+    decorate-component-with-props "^1.0.2"
+    draft-js "^0.9.1"
+    draft-js-checkable-list-item "^2.0.2"
+    immutable "^3.8.1"
+    react "^15.4.1"
+    react-dom "^15.4.1"
 
 draft-js-plugins-editor@^2.0.0-beta10:
   version "2.0.0-beta9"
@@ -2496,6 +2522,14 @@ draft-js@>=0.9.1, draft-js@^0.10.0:
   resolved "http://registry.npm.taobao.org/draft-js/download/draft-js-0.10.0.tgz#29d16191012b932fdab28a9b37ec1538f421abf6"
   dependencies:
     fbjs "^0.8.7"
+    immutable "~3.7.4"
+    object-assign "^4.1.0"
+
+draft-js@^0.9.1:
+  version "0.9.1"
+  resolved "http://registry.npm.taobao.org/draft-js/download/draft-js-0.9.1.tgz#940a51a0ad1fede0411676b6404f4050495f54f9"
+  dependencies:
+    fbjs "^0.8.3"
     immutable "~3.7.4"
     object-assign "^4.1.0"
 
@@ -3038,7 +3072,7 @@ faye-websocket@~0.11.0:
   dependencies:
     websocket-driver ">=0.5.1"
 
-fbjs@^0.8.4, fbjs@^0.8.5, fbjs@^0.8.7, fbjs@^0.8.8, fbjs@^0.8.9:
+fbjs@^0.8.3, fbjs@^0.8.4, fbjs@^0.8.5, fbjs@^0.8.7, fbjs@^0.8.8, fbjs@^0.8.9:
   version "0.8.12"
   resolved "http://registry.npm.taobao.org/fbjs/download/fbjs-0.8.12.tgz#10b5d92f76d45575fd63a217d4ea02bea2f8ed04"
   dependencies:
@@ -3150,6 +3184,18 @@ flat-cache@^1.2.1:
 flatten@^1.0.2:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/flatten/download/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
+
+flow-bin@^0.45.0:
+  version "0.45.0"
+  resolved "http://registry.npm.taobao.org/flow-bin/download/flow-bin-0.45.0.tgz#009dd0f577a3f665c74ca8be827ae8c2dd8fd6b5"
+
+flow-config-parser@^0.3.0:
+  version "0.3.0"
+  resolved "http://registry.npm.taobao.org/flow-config-parser/download/flow-config-parser-0.3.0.tgz#704916efba88cd2518ab4d8f933079571276138f"
+
+flow-runtime@^0.11.1:
+  version "0.11.1"
+  resolved "http://registry.npm.taobao.org/flow-runtime/download/flow-runtime-0.11.1.tgz#cd4266e2c0cb7954af87e1168393164a877eb623"
 
 for-in@^0.1.3:
   version "0.1.8"
@@ -5971,7 +6017,7 @@ react-docgen@^2.12.1:
     node-dir "^0.1.10"
     recast "^0.11.5"
 
-"react-dom@0.14.x || 15.* || ^15.0.0", react-dom@>=15.3.1, react-dom@^15.5.4:
+"react-dom@0.14.x || 15.* || ^15.0.0", react-dom@>=15.3.1, react-dom@^15.4.1, react-dom@^15.5.4:
   version "15.5.4"
   resolved "http://registry.npm.taobao.org/react-dom/download/react-dom-15.5.4.tgz#ba0c28786fd52ed7e4f2135fe0288d462aef93da"
   dependencies:
@@ -6103,7 +6149,7 @@ react-test-renderer@^15.5.4:
     fbjs "^0.8.9"
     object-assign "^4.1.0"
 
-react@>=15.3.1, react@^15.5.4:
+react@>=15.3.1, react@^15.4.1, react@^15.5.4:
   version "15.5.4"
   resolved "http://registry.npm.taobao.org/react/download/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"
   dependencies:

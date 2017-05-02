@@ -5,10 +5,27 @@
 // IMPORTANT
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
-
+const path = require('path');
 
 module.exports = (storybookBaseConfig, configType) => {
-  const plugins = [
+  console.log(storybookBaseConfig.module.loaders[0].query.presets)
+  storybookBaseConfig.module.loaders = [
+    {
+      test: /\.jsx?$/,
+      exclude: /(node_modules|bower_components)/,
+      loader: 'babel-loader',
+      query: {
+        babelrc: false,
+        cacheDirectory: path.resolve(__dirname, '../node_modules/.cache/react-storybook'),
+        "presets": ["flow", "react", ["es2015"], "stage-2"],
+        "plugins": [
+          "transform-runtime",
+          "transform-decorators-legacy",
+          "transform-class-properties",
+          "flow-runtime"
+        ]
+      }
+    },
     {
       test: /\.(graphql|gql)$/,
       exclude: /node_modules/,
@@ -21,8 +38,6 @@ module.exports = (storybookBaseConfig, configType) => {
       ],
     }
   ];
-  plugins.map(plugin => storybookBaseConfig.module.loaders.push(plugin));
-
 
   return storybookBaseConfig;
 };
