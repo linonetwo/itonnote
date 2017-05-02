@@ -8,14 +8,21 @@
 
 
 module.exports = (storybookBaseConfig, configType) => {
-
-  storybookBaseConfig.module.loaders.push(
+  const plugins = [
     {
       test: /\.(graphql|gql)$/,
       exclude: /node_modules/,
       loaders: ['graphql-tag/loader']
+    },
+    {
+      test: /plugin\.css$/,
+      loaders: [
+        'style', 'css',
+      ],
     }
-  );
+  ];
+  plugins.map(plugin => storybookBaseConfig.module.loaders.push(plugin));
+
 
   return storybookBaseConfig;
 };
