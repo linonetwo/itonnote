@@ -6991,6 +6991,17 @@ style-search@^0.1.0:
   version "0.1.0"
   resolved "http://registry.npm.taobao.org/style-search/download/style-search-0.1.0.tgz#7958c793e47e32e07d2b5cafe5c0bf8e12e77902"
 
+styled-components-breakpoint@^1.0.0-preview.3:
+  version "1.0.0-preview.3"
+  resolved "http://registry.npm.taobao.org/styled-components-breakpoint/download/styled-components-breakpoint-1.0.0-preview.3.tgz#c1b5f75988d4fd0bec53f0e8b1a475cf21c6f3ad"
+
+styled-components-spacing@^2.0.4:
+  version "2.0.4"
+  resolved "http://registry.npm.taobao.org/styled-components-spacing/download/styled-components-spacing-2.0.4.tgz#b026724052609dbac5d480399852994621541547"
+  dependencies:
+    prop-types "^15.5.8"
+    styled-components-breakpoint "^1.0.0-preview.3"
+
 styled-components@^1.4.5:
   version "1.4.5"
   resolved "http://registry.npm.taobao.org/styled-components/download/styled-components-1.4.5.tgz#20c52f6355e28c7f20a99c05c6d5108a4858cfba"
