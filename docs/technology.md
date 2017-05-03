@@ -8,6 +8,8 @@
 - 离线应用：[jIO](https://lab.nexedi.com/nexedi/jio/)
 - 质量控制：FlowType, Jest, ReactStorybook
 
+环形菜单使用了 ```react-track``` 来获得触发点位置，并用 ```styled-components``` 运行时生成 css 把菜单项放到正确的位置。将来将加入多种触发方式、自动避开边缘、出现消失动画，并发布为单独的 npm 包。
+
 ## 存储
 
 - 暴露后端数据：Apollo GraphQL

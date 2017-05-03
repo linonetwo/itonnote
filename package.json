@@ -92,6 +92,7 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^5.0.0-alpha.6",
+    "react-track": "^0.4.4",
     "reactstrap": "^4.5.0",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.0",
