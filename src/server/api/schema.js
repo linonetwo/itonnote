@@ -1,7 +1,7 @@
 import { makeExecutableSchema, addErrorLoggingToSchema } from 'graphql-tools';
 import { PubSub } from 'graphql-subscriptions';
 
-import rootSchemaDef from './root_schema.graphqls';
+import rootSchemaDef from './root_schema.graphql';
 import { graphQLSchemas, createResolvers } from '../modules';
 import log from '../../common/log';
 
