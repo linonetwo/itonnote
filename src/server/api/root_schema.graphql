@@ -1,5 +1,11 @@
 type Query {
-  dummy: Int
+  notes(ids: [String]!): [Note]!
+  note(id: String!): Note
+}
+
+type Note {
+  title: String!
+  content: String!
 }
 
 type Mutation {

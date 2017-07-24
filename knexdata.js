@@ -1,8 +1,6 @@
 export const development = {
-  client: 'sqlite3',
-  connection: {
-    filename: './dev-db.sqlite3'
-  },
+  client: 'pg',
+  connection: process.env.DATABASE_URL,
   seeds: {
     directory: './src/server/database/seeds'
   },
