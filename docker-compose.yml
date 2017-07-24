@@ -1,0 +1,60 @@
+version: '3.2'
+
+services:
+
+  # Nginx web server acting as a reverse proxy for "web" and "api" services
+  nginx:
+    image: nginx:1.13.1-alpine
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/log/nginx
+      - /var/run
+    depends_on:
+      - server
+    ports:
+      - "80:80"
+      - "8443:443"
+    volumes:
+      - ./config/nginx-snippets:/etc/nginx/snippets:ro
+      - ./config/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+
+  # Data API and authentication/authorization
+  server:
+    image: node:8.1.4-alpine
+    hostname: server
+    depends_on:
+      - db
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - CORS_ORIGIN=http://localhost:3001,http://localhost:3000
+      - DATABASE_URL=postgres://postgres@db:5432/dev
+      - DATABASE_DEBUG=false
+    expose:
+      - "8080"
+    ports:
+      - "127.0.0.1:9229:9229" # V8 inspector (when NODE_DEBUG=true)
+    volumes:
+      - yarn:/root/.cache/yarn
+      - ./:/usr/src/app
+    user: node
+    working_dir: /usr/src/app
+    command: [sh, -c, "npm --registry=https://registry.npm.taobao.org i --quiet && npm run dev"]
+
+  # SQL and document data store
+  db:
+    image: postgres:9.6.3-alpine
+    read_only: true
+    ports:
+      - "5432:5432"
+    tmpfs:
+      - /tmp
+      - /var/run/postgresql
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./config/postgres-initdb.sh:/docker-entrypoint-initdb.d/initdb.sh
+
+
+volumes:
+  db:
+  yarn:
