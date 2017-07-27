@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import {TrackDocument, TrackedDiv} from 'react-track';
 import {centerTop} from 'react-track/tracking-formulas';
+import ReactCursorPosition from 'react-cursor-position';
+import Rx from 'rxjs/Rx';
 
 const centerLeft = containerRect => rect => ~~(rect.top + rect.width / 2 - containerRect.left);
 
@@ -17,11 +19,12 @@ const Rotater = styled.div`
   transition: all ${p => p.speed || '0.2'}s ease ${p => p.speed || '0.2'}s;
 `;
 
+type TriggerType = 'PassEdge' | 'Click';
 
 type MenuItem = {
   component: typeof React.Element,
   function: Function,
-  triggerBy?: 'PassEdge' | 'click',
+  triggerBy?: TriggerType,
   notCloseByTrigger?: boolean,
   items?: Array<MenuItem>
 }
@@ -31,6 +34,7 @@ type Props = {
   items: Array<MenuItem>,
   radius: number,
   disabled?: boolean,
+  triggerBy?: TriggerType,
 }
 
 type State = {
@@ -44,16 +48,29 @@ export default class CircularMenu extends Component {
     hiding: true,
   }
 
+  Trigger = (props: { cursorPosition: { isOutside: boolean }}) => {
+  const {
+    cursorPosition: {
+      isOutside = true
+    } = {}
+  } = props;
+
+  return (
+    <div>
+      {props.children}
+    </div>
+  );
+};
+
   render() {
     const angelForEach = 2 * Math.PI / this.props.items.length;
-    const { radius, disabled } = this.props;
     return (
       <TrackDocument formulas={[centerTop, centerLeft]}>
       {(centerTop, centerLeft) =>
       <TrackedDiv formulas={[centerTop, centerLeft]}>
       {(poscenterTop, poscenterLeft) => (<div>
             {/* Trigger */}
-            <div onClick={() => {if (!disabled) this.setState({ hiding: !this.state.hiding });}}>
+            <div onClick={() => {if (!this.props.disabled) this.setState({ hiding: !this.state.hiding });}}>
               {this.props.children}
             </div>
             {/* Menu Items */}
@@ -65,7 +82,7 @@ export default class CircularMenu extends Component {
                   return this.setState({ hiding: true });
                 }}
                 hiding={this.state.hiding}
-                radius={radius}
+                radius={this.props.radius}
                 top={poscenterTop}
                 left={poscenterLeft}
                 angel={angelForEach}
