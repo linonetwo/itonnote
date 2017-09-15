@@ -46,7 +46,7 @@ FR 是 Function Requirement 的意思。
 功能描述|将blob以其格式展示在网页上
 处理流程|根据blob格式，使用适当的插件渲染内容
 用户痛点|PDF和markdown都可以查看
-补充说明|主要支持 markdown，其他某些数据的格式可以是一段 JS 的地址，就用这段 JS 来渲染内容为 iframe
+补充说明|主要支持 markdown，其他某些数据的格式可以是一段 JS 的地址，就用这段 JS 来渲染内容为 iframe；表格文件可以在 API 里传参，让它返回一个 JSON 供它处使用
 
 -|-
 -|-
@@ -73,14 +73,14 @@ FR 是 Function Requirement 的意思。
 
 -|-
 -|-
-功能|渲染插件系统
+功能|核心插件-渲染插件系统
 编号|FR-PLUG-001
 优先级|中
 使用者状态|阅读者
-功能描述|用个性化的 JS 脚本渲染 blob（二进制大文件）
+功能描述|加载其他渲染插件，用个性化的 JS 脚本渲染从 API 加载的 blob（二进制大文件）
 处理流程|
 用户痛点|用户可能想看 CSV 格式渲染出来的标签云、想用自己的 Markdown 渲染器等
-补充说明|需要暴露一些 API 给插件
+补充说明|根据[exhibit](http://people.csail.mit.edu/karger/Exhibit/CAR/HandsOn/)的[经验](http://videolectures.net/eswc2013_karger_semantic/)，加载其他某个 JSON 文件
 
 -|-
 -|-
